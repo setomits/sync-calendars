@@ -118,8 +118,8 @@ def _sync_calendars(calendar_id_src, calendar_id_dst, start_date):
 
     creds_src = _authenticate_google_api('src')
     creds_dst = _authenticate_google_api('dst')
-    start_time = start_date.isoformat() + 'T00:00:00Z'
-    end_time = (start_date+timedelta(days=30)).isoformat() + 'T00:00:00Z'
+    start_time = start_date.isoformat() + 'Z'
+    end_time = (start_date+timedelta(days=30)).isoformat() + 'Z'
 
     events = _get_events(calendar_id_src, creds_src, start_time, end_time)
     _delete_events(calendar_id_dst, creds_dst, start_time, end_time)
