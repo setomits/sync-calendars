@@ -140,7 +140,7 @@ def auth(target):
 @main.command()
 @click.argument("calendar_id_src")
 @click.argument("calendar_id_dst")
-@click.option("--start-date", type=click.DateTime(formats=["%Y-%m-%d"]), default=date.today, show_default="today")
+@click.option("--start-date", type=click.DateTime(formats=["%Y-%m-%d"]), default=str(date.today()), show_default="today")
 def sync(calendar_id_src, calendar_id_dst, start_date):
     _sync_calendars(calendar_id_src, calendar_id_dst, start_date)
 
